@@ -14,6 +14,12 @@ export const ELEMENTS = {
 
 export const IS_DEBUG = process.env.NODE_ENV === 'development' ? true : false;
 
+// Имя типа SCENES может несколько сбить с толку, когда оно фигурирует в объявлении типа, 
+// т.к. оно больше похоже на имя коллекции сцен
+// Например: loadScene (scene: SCENES)
+// SCENE_NAME / SCENE?
+//
+// То же относится к другим перечислениям
 export enum SCENES {
     BOOT = 'Boot',
     GAME = 'Game',
@@ -58,4 +64,10 @@ export const HEIGHT = 1080;
 export const CENTER_X = WIDTH / 2;
 export const CENTER_Y = HEIGHT / 2;
 
+// Глобальный стейт (создается в начале, доступен из всех сцен)
+// Обычно неплохая идея - инжектить стейт внутрь тех модулей, где он нужен, чтобы
+// кто попало не мог в него зайти и что-то случайно испортить.
+//
+// Если реализовать архитектуру через контроллеры доступа к стейту (см. коммент в BasketMilk.ts),
+// то как раз удобно прокинуть стейт только в них.
 export const state = new State();

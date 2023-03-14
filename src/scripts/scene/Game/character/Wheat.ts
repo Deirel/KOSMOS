@@ -14,6 +14,7 @@ export default class Wheat extends Character {
     protected message(): void {
         super.message();
 
+        // У пшеницы нет стейта `process`. Это не очевидно на фоне того, как работают коровы и курицы.
         if (this.status !== 'complete') return;
 
         this.status = 'wait';

@@ -1,5 +1,7 @@
 import Cell, { ConfigCell } from './Cell';
 
+// ConfigField или FieldConfig?
+// Спорный вопрос ввиду существования разных подходов
 export interface ConfigField {
     x: number;
     y: number;
@@ -15,6 +17,11 @@ const SIZE_FIELD = {
 export default class Field extends Phaser.GameObjects.Container {
     private verticalCells: number;
     private horizontalCells: number;
+
+    // Вопрос к типизации
+    // Каст GameObject[] к Cell[] (см. свойство getCells) не безопасно (см. ковариантность / контрвариантность)
+    //     1. Какова цель объявления как GameObject[], если в массиве только Cell?
+    //     2. Если в массиве предполагаются не только Cell - нельзя возвращать его в getCells напрямую.
     private content: Phaser.GameObjects.GameObject[] = [];
 
     constructor(scene: Phaser.Scene, configField: ConfigField) {
@@ -76,6 +83,7 @@ export default class Field extends Phaser.GameObjects.Container {
         }
     }
 
+    // `getCells` - более подходящее имя для метода
     get getCells(): Cell[] {
         return this.content as Cell[];
     }

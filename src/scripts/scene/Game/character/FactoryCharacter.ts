@@ -14,6 +14,9 @@ export default class FactoryCharacter {
     }
 
     public create(name: SKIN, parent: Cell): TCharacter {
+        // `if (name === ...)`
+        // Стоит избегать подобного хардкода, так как он чреват ошибками и очень плох для расширения.
+        // Для унификации создания character'ов подошла бы абстрактная фабрика.
         if (name === 'chicken') {
             const config = {
                 ...FRAMES.chicken,

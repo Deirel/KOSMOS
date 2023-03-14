@@ -6,6 +6,7 @@ const style: Phaser.Types.GameObjects.Text.TextStyle = {
 };
 
 export class Basket extends Phaser.GameObjects.Container {
+    // Лишний референс
     public scene: Phaser.Scene;
     private title: Phaser.GameObjects.Text;
     private subtitle: Phaser.GameObjects.Text;
@@ -28,6 +29,7 @@ export class Basket extends Phaser.GameObjects.Container {
         this.title.setText(text);
     }
 
+    // Может быть protected
     public setText(text: number) {
         this.subtitle.setText(`${text}`);
     }
@@ -45,11 +47,18 @@ export class BasketSell extends Basket {
         const btn_text = scene.add.text(0, 0, 'sell', style);
         btn_text.copyPosition(btn).setOrigin(0.5);
         btn.setInteractive().on('pointerdown', this.message, this);
+
+        // Чтобы не писать много this?)
         this.btn = btn;
         this.text_btn = btn_text;
+
         this.add([btn, btn_text]);
     }
 
+    // animateButton? -- нет, т.к. поведение переопределяется в потомках
+    // onPointerDown?
+    // processSellClick?
+    // sell?
     protected message(): void {
         this.scene.tweens.add({
             targets: [this.btn, this.text_btn],

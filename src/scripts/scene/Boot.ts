@@ -1,4 +1,6 @@
+// Имя файла: это не атлас, скорее конфиг ресурсов
 import Sprite from 'assets/atlas.json';
+
 import { SCENES } from '../util/global';
 import LoadingProgress from './Boot/LoadingProgress';
 

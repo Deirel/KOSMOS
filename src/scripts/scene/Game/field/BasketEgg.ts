@@ -8,6 +8,7 @@ export default class BasketEgg extends BasketSell {
         this.setTitle('Egg');
         this.setText(state.value_egg.value);
 
+        // Можно вынести в базовый класс или использовать автобиндер
         const setText = this.setText.bind(this);
 
         state.value_egg.add_observer({
