@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "outDir": "./dist",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["src/*"],
+       "assets" : ["../assets/*"] 
+    }
+  },
+  "include": [
+    "src/**/*",
+    "custom.d.ts"
+],
+  "exclude": ["/node_modules/"]
+}

@@ -1,0 +1,26 @@
+{
+    "key": "name_png",
+    "wheat": {
+        "value_name": "wheat",
+        "value_sum": 1,
+        "speed": 10
+    },
+    "chicken": {
+        "value_name": "egg",
+        "value_sum": 1,
+        "speed": 10,
+        "need_source": "wheat",
+        "time_source": 30,
+        "need": 1,
+        "price": 30
+    },
+    "cow": {
+        "value_name": "milk",
+        "value_sum": 1,
+        "speed": 20,
+        "need_source": "wheat",
+        "time_source": 20,
+        "need": 1,
+        "price": 20
+    }
+}

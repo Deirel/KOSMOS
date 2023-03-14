@@ -1,0 +1,15 @@
+# general
+node_modules
+.cache
+
+# build
+dist
+!vendor/core/dist
+# editors
+.idea
+.vscode
+*.tiled-session
+ВОССТАНОВИТЬ*.fla
+RECOVER*.fla
+dist.7z
+todo.md
